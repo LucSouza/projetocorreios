@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.rest.example.student;
+package com.projetocorreios.poo3.student;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

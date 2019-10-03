@@ -226,7 +226,7 @@ public class StudentNotFoundException extends RuntimeException {
 ```java
 package com.in28minutes.springboot.rest.example.student;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.projetocorreios.poo3.student.Student;import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -245,7 +245,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.projetocorreios.poo3.student.Student;import com.projetocorreios.poo3.student.StudentNotFoundException;import com.projetocorreios.poo3.student.StudentRepository;import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

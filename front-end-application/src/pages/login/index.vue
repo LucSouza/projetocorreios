@@ -17,6 +17,61 @@
             counter
             @click:append="show1 = !show1"
           ></v-text-field>
+
+  <v-container class="grey lighten-5">
+    <v-row no-gutters>
+      <template v-for="n in 2">
+        <v-col :key="n">
+          <v-card
+          
+          </v-card>
+        
+        </v-col>
+        <v-responsive
+          v-if="n === 2"
+          :key="`width-${n}`"
+          width="100%"
+        ></v-responsive>
+      </template>
+    </v-row>
+  </v-container>
+
+<v-row no-gutters>
+      <v-col
+        v-for="n in 1"
+        :key="n"
+        :cols="n === 1 ? 6 : 6"
+      >
+        <v-card
+          class="pa-2"
+          tile
+          outlined
+        >
+          
+            <div class="text-center">
+               <v-btn>Login</v-btn>
+            </div>
+        </v-card>
+      </v-col>
+      <v-col
+        v-for="n in 1"
+        :key="n"
+        :cols="n === 1 ? 6 : 6"
+      >
+        <v-card
+          class="pa-2"
+          tile
+          outlined
+        >
+          
+            <div class="text-center">
+               <v-btn>Criar Usuario</v-btn>
+            </div>
+        </v-card>
+      </v-col>
+    </v-row>
+           
+
         </v-layout>
   </v-container>
 </template>

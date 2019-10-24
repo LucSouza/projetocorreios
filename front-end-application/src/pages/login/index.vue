@@ -1,101 +1,95 @@
 <template>
   <v-container>
-    <v-layout text-center wrap class='low'>
-    <v-text-field
-            v-model="usuario"
-            :type="show1 ? 'text' : 'usuario'"
-            name="input-10-1"
-            label="Usuario"
-          ></v-text-field>
-          <v-text-field
-            v-model="password"
-            :append-icon="show1 ? 'Ocultar' : 'visibility_off'"
-            :type="show1 ? 'text' : 'password'"
-            name="input-10-1"
-            label="Password"
-            hint="At least 8 characters"
-            counter
-            @click:append="show1 = !show1"
-          ></v-text-field>
+    <v-layout text-center wrap>
+      <v-flex xs12>
+        <img class="logo" src="../../assets/logo.png" />
+      </v-flex>
+      <v-flex mb-4>
+        <v-form ref="form" v-model="valid" lazy-validation>
+          <label class="formlabel">Usuario</label>
+          <v-text-field v-model="usuario" solo required></v-text-field>
 
-  <v-container class="grey lighten-5">
-    <v-row no-gutters>
-      <template v-for="n in 2">
-        <v-col :key="n">
-          <v-card
-          
-          </v-card>
-        
-        </v-col>
-        <v-responsive
-          v-if="n === 2"
-          :key="`width-${n}`"
-          width="100%"
-        ></v-responsive>
-      </template>
-    </v-row>
-  </v-container>
+          <label class="formlabel">Senha</label>
+          <v-text-field type="password" v-model="senha" solo required></v-text-field>
+          <a href="javascript:;" class="forgot">Esqueci minha senha</a>
+          <br />
+          <br />
+          <v-row>
+            <v-col></v-col>
+            <v-col>
+              <v-btn
+                :disabled="!valid"
+                color="success"
+                class="buttomFull"
+                @click="redirectURL('dashboard')"
+              >Entrar</v-btn>
+            </v-col>
+            <br />
+            <br />
+            <v-col>
+              <v-btn color="error" class="buttomFull mr-4" @click="redirectURL('sign-up')">Cadastrar</v-btn>
+            </v-col>
+            <v-col></v-col>
+          </v-row>
+        </v-form>
 
-<v-row no-gutters>
-      <v-col
-        v-for="n in 1"
-        :key="n"
-        :cols="n === 1 ? 6 : 6"
+        <br />
+    
+    <v-footer
+      absolute
+      class="font-weight-medium"
+    >
+      <v-card
+        flat
+        tile
+        width="100%"
+        class="blue lighten-1 text-center"
       >
-        <v-card
-          class="pa-2"
-          tile
-          outlined
-        >
-          
-            <div class="text-center">
-               <v-btn>Login</v-btn>
-            </div>
-        </v-card>
-      </v-col>
-      <v-col
-        v-for="n in 1"
-        :key="n"
-        :cols="n === 1 ? 6 : 6"
-      >
-        <v-card
-          class="pa-2"
-          tile
-          outlined
-        >
-          
-            <div class="text-center">
-               <v-btn>Criar Usuario</v-btn>
-            </div>
-        </v-card>
-      </v-col>
-    </v-row>
-           
+        <v-card-text class="white--text">
+          © https://github.com/LucSouza
+        </v-card-text>
 
-        </v-layout>
+        <v-divider></v-divider>
+
+        <v-card-text class="white--text">
+          {{ new Date().getFullYear() }} — <strong>GNU RULES |
+                <a
+                  href="https://www.gnu.org/philosophy/free-sw.pt-br.html"
+                >Términos de uso</a></strong>
+        </v-card-text>
+      </v-card>
+    </v-footer>
+
+   
+      </v-flex>
+    </v-layout>
   </v-container>
 </template>
 
 <script>
+import mixins from "../../plugins/mixins";
 
-  export default {
-    name: 'Login',
-    data(){
-      return {
-        usuario: '',
-        password: '',
-        show1: true
+export default {
+  mixins: [mixins],
+  data: () => ({
+    valid: true,
+    usuario: "Teste",
+    senha: "1234"
+  }),
+
+  methods: {
+    validate() {
+      if (this.$refs.form.validate()) {
+        this.snackbar = true;
       }
+    },
+    reset() {
+      this.$refs.form.reset();
+    },
+    resetValidation() {
+      this.$refs.form.resetValidation();
     }
   }
-
+};
 </script>
 
-<style>
-.low {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center; 
-}
-</style>

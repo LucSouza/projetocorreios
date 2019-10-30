@@ -1,22 +1,26 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-layout text-center wrap>
       <v-flex xs12>
+        <img class="logo" src="../../assets/logo.png" />
         <h1 class="titleHead">Dashboard</h1>
       </v-flex>
     </v-layout>
-    <v-btn color="error" class="buttomFull mr-4" @click="redirectURL('/')">Logout</v-btn>
+    <v-row justify="end">
+ 
+      <v-btn color="out" class="buttomFull" @click="redirectURL('/')">Logout</v-btn>
+    </v-row>
+
     <v-card>
       <v-text-field
         v-model="search"
         append-icon
-        path="{mdi-magnify}"
         label="Procurar por tracking code..."
         single-line
         hide-details
       ></v-text-field>
     </v-card>
-    <v-data-table
+    <v-data-table color='fundo'
       v-model="selected"
       :headers="headers"
       :items="trackings"
@@ -25,12 +29,10 @@
       show-select
       class="elevation-1"
     >
-      <template v-slot:top>
-        
-      </template>
+      <template v-slot:top></template>
     </v-data-table>
     <v-row>
-      <v-col></v-col>
+    
       <v-col>
         <v-btn color="success" class="buttomFull" @click="redirectURL('reg-Code')">Cadastrar código</v-btn>
       </v-col>
@@ -38,9 +40,9 @@
       <br />
       <br />
       <v-col>
-        <v-btn color="error" class="buttomFull mr-4">Eliminar</v-btn>
+        <v-btn color="error" class="buttomFull">Eliminar</v-btn>
       </v-col>
-      <v-col></v-col>
+   
     </v-row>
   </v-container>
 </template>
@@ -48,9 +50,6 @@
 
 <script>
 import mixins from "../../plugins/mixins";
-import React, { Component } from "react";
-import Icon from "@mdi/react";
-import { mdiMagnify } from "@mdi/js";
 
 export default {
   mixins: [mixins],

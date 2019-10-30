@@ -1,29 +1,17 @@
 import moment from 'moment'
 import JQuery from 'jquery'
 let $ = JQuery
-import React, { Component } from 'react'
-import Icon from '@mdi/react'
+
 
 
 export default {
   data(){
     return{
-
+      dialog: false,
     }
   },
   methods: {
-      clickButton(img){
-        let imageEl = $("a."+img);
-        let ext = null
-          if(imageEl.hasClass('active')){
-          ext = 'png';
-          imageEl.removeClass('active');
-        } else {
-          ext = 'gif';
-          imageEl.addClass('active');
-        }
-        imageEl.css("background-image", "url(img/"+img+"."+ext+")");
-        },
+
     redirectURL(path) {
       this.$router.push(path)
       return false

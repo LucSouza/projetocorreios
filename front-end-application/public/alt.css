@@ -1,4 +1,4 @@
-html, body, #app { background: #77DD77; font-size: 1.2em }
+html, body, #app { background: #6b69692a; font-size: 1.2em }
 * {  }
 a { color: #fff !important;}
 .logo { width: auto; margin: 30px 0px;}
@@ -6,9 +6,6 @@ input { box-shadow: none !important; font-size: 1.5em !important; }
 label.formlabel { text-align: left; display: block; text-transform: uppercase; color: #fff; font-weight: bold; }
 form { font-size: 1em; }
 
-button.buttomFull { font-size: 1em !important; width: 100%; padding: 10px; height: auto !important; padding: 10px !important;}
-.v-application .buttomFull.success { background-color: #4CAF50 !important;}
-.v-application .buttomFull.error { background-color: #FF5252 !important;}
-.v-application .buttomFull.out { background-color: #FF5252 !important; color: #fff;width: auto; align-content: flex-end;}
+.botoes { font-size: 1em !important; width: 100%; height: auto !important; padding: 10px !important; }
 h1.titleHead { text-transform: uppercase; font-size: 1.2em; font-weight: bold; text-align: center; margin-bottom: 20px; color: #000000;}
 a.goBack { margin: 30px 0px; float: left; }

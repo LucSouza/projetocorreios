@@ -1,0 +1,8 @@
+RF 01 cadastrar usuario (CRUD)
+RF 02 cadastrar tracking code (CRUD)
+RF 03 logar usuario
+RF 04 deslogar usuario
+
+RNF 01 a indisponibilidade está sujeita ao API
+RNF 02 a consulta não pode demorar mais de 5 seg.
+RNF 03 o sistema será mobile

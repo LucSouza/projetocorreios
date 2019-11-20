@@ -156,10 +156,10 @@ public class SpringBoot2RestServiceApplication {
 ```
 ---
 
-### /src/main/java/com/in28minutes/springboot/rest/example/student/Student.java
+### /src/main/java/com/in28minutes/springboot/rest/example/usuario/Student.java
 
 ```java
-package com.in28minutes.springboot.rest.example.student;
+package com.in28minutes.springboot.rest.example.usuario;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -206,10 +206,10 @@ public class Student {
 ```
 ---
 
-### /src/main/java/com/in28minutes/springboot/rest/example/student/StudentNotFoundException.java
+### /src/main/java/com/in28minutes/springboot/rest/example/usuario/StudentNotFoundException.java
 
 ```java
-package com.in28minutes.springboot.rest.example.student;
+package com.in28minutes.springboot.rest.example.usuario;
 
 public class StudentNotFoundException extends RuntimeException {
 
@@ -221,31 +221,31 @@ public class StudentNotFoundException extends RuntimeException {
 ```
 ---
 
-### /src/main/java/com/in28minutes/springboot/rest/example/student/StudentRepository.java
+### /src/main/java/com/in28minutes/springboot/rest/example/usuario/StudentRepository.java
 
 ```java
-package com.in28minutes.springboot.rest.example.student;
+package com.in28minutes.springboot.rest.example.usuario;
 
-import com.projetocorreios.poo3.student.Student;import org.springframework.data.jpa.repository.JpaRepository;
+import com.projetocorreios.poo3.student.Usuario;import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long>{
+public interface StudentRepository extends JpaRepository<Usuario, Long>{
 
 }
 ```
 ---
 
-### /src/main/java/com/in28minutes/springboot/rest/example/student/StudentResource.java
+### /src/main/java/com/in28minutes/springboot/rest/example/usuario/StudentResource.java
 
 ```java
-package com.in28minutes.springboot.rest.example.student;
+package com.in28minutes.springboot.rest.example.usuario;
 
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-import com.projetocorreios.poo3.student.Student;import com.projetocorreios.poo3.student.StudentNotFoundException;import com.projetocorreios.poo3.student.StudentRepository;import org.springframework.beans.factory.annotation.Autowired;
+import com.projetocorreios.poo3.student.Usuario;import com.projetocorreios.poo3.usuario.StudentNotFoundException;import com.projetocorreios.poo3.usuario.StudentRepository;import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -263,18 +263,18 @@ public class StudentResource {
 	private StudentRepository studentRepository;
 
 	@GetMapping("/students")
-	public List<Student> retrieveAllStudents() {
+	public List<Usuario> retrieveAllStudents() {
 		return studentRepository.findAll();
 	}
 
 	@GetMapping("/students/{id}")
-	public Student retrieveStudent(@PathVariable long id) {
-		Optional<Student> student = studentRepository.findById(id);
+	public Usuario retrieveStudent(@PathVariable long id) {
+		Optional<Usuario> usuario = studentRepository.findById(id);
 
-		if (!student.isPresent())
+		if (!usuario.isPresent())
 			throw new StudentNotFoundException("id-" + id);
 
-		return student.get();
+		return usuario.get();
 	}
 
 	@DeleteMapping("/students/{id}")
@@ -283,27 +283,27 @@ public class StudentResource {
 	}
 
 	@PostMapping("/students")
-	public ResponseEntity<Object> createStudent(@RequestBody Student student) {
-		Student savedStudent = studentRepository.save(student);
+	public ResponseEntity<Object> createStudent(@RequestBody Usuario usuario) {
+		Usuario savedUsuario = studentRepository.save(usuario);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(savedStudent.getId()).toUri();
+				.buildAndExpand(savedUsuario.getId()).toUri();
 
 		return ResponseEntity.created(location).build();
 
 	}
 	
 	@PutMapping("/students/{id}")
-	public ResponseEntity<Object> updateStudent(@RequestBody Student student, @PathVariable long id) {
+	public ResponseEntity<Object> updateStudent(@RequestBody Usuario usuario, @PathVariable long id) {
 
-		Optional<Student> studentOptional = studentRepository.findById(id);
+		Optional<Usuario> studentOptional = studentRepository.findById(id);
 
 		if (!studentOptional.isPresent())
 			return ResponseEntity.notFound().build();
 
-		student.setId(id);
+		usuario.setId(id);
 		
-		studentRepository.save(student);
+		studentRepository.save(usuario);
 
 		return ResponseEntity.noContent().build();
 	}
@@ -320,10 +320,10 @@ public class StudentResource {
 ### /src/main/resources/data.sql
 
 ```
-insert into student
+insert into usuario
 values(10001,'Ranga', 'E1234567');
 
-insert into student
+insert into usuario
 values(10002,'Ravi', 'A1234568');
 ```
 ---

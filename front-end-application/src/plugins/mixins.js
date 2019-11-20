@@ -1,6 +1,6 @@
-import moment from 'moment'
-import JQuery from 'jquery'
-let $ = JQuery
+ import moment from 'moment'
+// import JQuery from 'jquery'
+// let $ = JQuery
 
 
 
@@ -15,7 +15,7 @@ export default {
     redirectURL(path) {
       this.$router.push(path)
       return false
-    },
+  },
     formatDate: function(data, formato) {
       if(data)
         if (formato == 'pt-br') {

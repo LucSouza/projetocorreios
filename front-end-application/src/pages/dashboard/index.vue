@@ -1,16 +1,5 @@
 <template>
   <v-container>
-    <v-layout text-center wrap>
-      <v-flex xs12>
-        <img class="logo" src="../../assets/logo.png" />
-        <h1 class="titleHead">Dashboard</h1>
-      </v-flex>
-    </v-layout>
-    <v-row justify="end">
- 
-      <v-btn color="out" class="buttomFull" @click="redirectURL('/')">Logout</v-btn>
-    </v-row>
-
     <v-card>
       <v-text-field
         v-model="search"
@@ -19,8 +8,9 @@
         single-line
         hide-details
       ></v-text-field>
-    </v-card>
-    <v-data-table color='fundo'
+   
+    <v-data-table
+      color="fundo"
       v-model="selected"
       :headers="headers"
       :items="trackings"
@@ -31,28 +21,28 @@
     >
       <template v-slot:top></template>
     </v-data-table>
-    <v-row>
-    
-      <v-col>
-        <v-btn color="success" class="buttomFull" @click="redirectURL('reg-Code')">Cadastrar código</v-btn>
-      </v-col>
+     </v-card>
+    <v-flex row>
+      <v-flex>
+        <div>
+          <v-btn outlined color="primary" class="botoes" dark to="reg-code">Cadastrar</v-btn>
+        </div>
+      </v-flex>
 
-      <br />
-      <br />
-      <v-col>
-        <v-btn color="error" class="buttomFull">Eliminar</v-btn>
-      </v-col>
-   
-    </v-row>
+      <v-flex justify-content>
+        <div>
+          <v-btn outlined color="secundary" class="botoes" dark>Eliminar</v-btn>
+        </div>
+      </v-flex>
+    </v-flex>
   </v-container>
 </template>
 
 
 <script>
-import mixins from "../../plugins/mixins";
-
 export default {
-  mixins: [mixins],
+  name: "dashboard",
+
   data() {
     return {
       search: "",
@@ -70,21 +60,21 @@ export default {
           LocalState: "SAO JOSE / SC",
           tcode: "OH305776077BR",
           dateOfPost: "13 / 08 / 2019",
-          descricao: "BONECA INFLAVEL",
+          descricao: "Teste 1",
           description: "Objeto entregue ao destinatário"
         },
         {
           LocalState: "CAJAMAR / SP",
           tcode: "PX149041811BR",
           dateOfPost: "18 / 10 / 2019",
-          descricao: "Celular alta gama",
+          descricao: "Teste 2",
           description: "Objeto entregue ao destinatário"
         },
         {
           LocalState: '"FLORIANOPOLIS / SC"',
           tcode: "LX008580575US",
           dateOfPost: "11 / 10 / 2019",
-          descricao: "Vitamina b12",
+          descricao: "Teste 3",
           description: "Objeto entregue ao destinatário"
         }
       ]

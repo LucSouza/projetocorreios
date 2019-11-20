@@ -1,9 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '../pages/login/'
-import SignUp from '../pages/sign-up/'
-import RegCode from '../pages/regCode/'
-import Dashboard from '../pages/dashboard/'
 
 
 Vue.use(Router)
@@ -13,22 +9,30 @@ const router = new Router({
         {
             path: '/',
             name: 'Login',
-            component: Login
+            component: () => import('../pages/login/')
         },
         {
             path: '/sign-up',
             name: 'SignUp',
-            component: SignUp
+            component: () => import('../pages/signUp/')
+            
         },
         {
             path: '/reg-code',
             name: 'RegCode',
-            component: RegCode
+            component: () => import('../pages/regCode/')
+            
         },
         {
             path: '/dashboard',
             name: 'Dashboard',
-            component: Dashboard
+            component: () => import('../pages/dashboard/')
+            
+        },
+        {
+            path: '/menu',
+            name: 'Menu',
+            component: () => import('../pages/menu/')
         }
 
 
@@ -36,4 +40,3 @@ const router = new Router({
 })
 
 export default router;
-

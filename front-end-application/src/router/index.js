@@ -29,12 +29,6 @@ const router = new Router({
             component: () => import('../pages/dashboard/')
             
         },
-        {
-            path: '/menu',
-            name: 'Menu',
-            component: () => import('../pages/menu/')
-        }
-
 
     ]
 })

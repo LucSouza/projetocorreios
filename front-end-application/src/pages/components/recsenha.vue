@@ -12,10 +12,11 @@
         <v-container>
           <v-row>
             <v-col cols="12" sm="6" md="4">
-              <v-text-field label="E-mail*" required></v-text-field>
+              <v-text-field label="E-mail*" v-model="form.email" solo required></v-text-field>
+
             </v-col>
             <v-col cols="12" sm="6" md="4">
-              <v-text-field label="CPF*" required></v-text-field>
+              <v-text-field label="CPF*" v-model="form.cpf" solo required></v-text-field>
             </v-col>
           </v-row>
         </v-container>
@@ -35,6 +36,7 @@ export default {
   name: "recsenha",
 
   data: () => ({
+    form: {},
     dialog: false
   })
 };

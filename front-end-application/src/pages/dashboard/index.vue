@@ -11,6 +11,7 @@
 
                 class="elevation-1"
         >
+
             <template v-slot:top>
                 <v-toolbar flat color="dark">
                     <v-toolbar-title>Códigos de rastreio</v-toolbar-title>
@@ -41,28 +42,24 @@
                             </v-card-title>
 
                             <v-card-text>
-
-
                                 <v-container>
-
                                     <v-row>
                                         <v-col cols="12" sm="6" md="4">
-                                            <v-text-field v-model="editedItem.tcode"
+                                            <v-text-field v-model="form.tcode"
                                                           label="Tracking code"></v-text-field>
                                         </v-col>
                                         <v-col cols="12" sm="6" md="4">
-                                            <v-text-field v-model="editedItem.descript"
+                                            <v-text-field v-model="form.descript"
                                                           label="Descrição"></v-text-field>
                                         </v-col>
-
                                     </v-row>
                                 </v-container>
                             </v-card-text>
 
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                                <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                                <v-btn color="blue darken-1" text @click="fechar">Cancel</v-btn>
+                                <v-btn color="blue darken-1" text @click="adicionar">Save</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
@@ -72,17 +69,18 @@
                 <v-icon
                         small
                         class="mr-2"
-                        @click="editItem(item)"
+                        @click="editar(item)"
                 >
                     mdi-pencil
                 </v-icon>
                 <v-icon
                         small
-                        @click="deleteItem(item)"
+                        @click="deletar(item)"
                 >
                     mdi-delete
                 </v-icon>
             </template>
+
 
         </v-data-table>
 
@@ -97,12 +95,7 @@
 
                 dialog: false,
                 headers: [
-                    {
-                        text: 'Tracking code',
-                        align: 'left',
-                        sortable: false,
-                        value: 'tcode',
-                    },
+                    {text: 'Tracking code', align: 'left', value: 'tcode'},
                     {text: 'Descrição', value: 'descript'},
                     {text: 'Localização', value: 'localization'},
                     {text: 'Estado de envio', value: 'status'},
@@ -111,7 +104,7 @@
                 ],
                 trackings: [],
                 editedIndex: -1,
-                editedItem: {
+                form: {
                     tcode: '',
                     descript: '',
 
@@ -135,7 +128,7 @@
 
         watch: {
             dialog(val) {
-                val || this.close()
+                val || this.fechar()
             }
             ,
         }
@@ -148,36 +141,36 @@
 
         methods: {
 
-            editItem(item) {
+            editar(item) {
                 this.editedIndex = this.trackings.indexOf(item)
-                this.editedItem = Object.assign({}, item)
+                this.form = Object.assign({}, item)
                 this.dialog = true
             }
             ,
 
-            deleteItem(item) {
+            deletar(item) {
                 const index = this.trackings.indexOf(item)
                 confirm('Tem certeza que quer deletar o código?') && this.trackings.splice(index, 1)
             }
             ,
 
 
-            close() {
+            fechar() {
                 this.dialog = false
                 setTimeout(() => {
-                    this.editedItem = Object.assign({}, this.defaultItem)
+                    this.form = Object.assign({}, this.defaultItem)
                     this.editedIndex = -1
                 }, 300)
             }
             ,
 
-            save() {
+            adicionar() {
                 if (this.editedIndex > -1) {
-                    Object.assign(this.trackings[this.editedIndex], this.editedItem)
+                    Object.assign(this.trackings[this.editedIndex], this.form)
                 } else {
-                    this.trackings.push(this.editedItem)
+                    this.trackings.push(this.form)
                 }
-                this.close()
+                this.fechar()
             }
             ,
         }

@@ -1684,7 +1684,7 @@ browserify-cipher@^1.0.0:
   dependencies:
     browserify-aes "^1.0.4"
     browserify-des "^1.0.0"
-    evp_bytestokey "^1.0.0"
+    evp_bytesokey "^1.0.0"
 
 browserify-des@^1.0.0:
   version "1.0.2"

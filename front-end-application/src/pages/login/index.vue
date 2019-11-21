@@ -5,12 +5,12 @@
         <img class="logo" src="@/assets/logo.png" />
       </v-flex>
       <v-flex mb-4>
-        <v-form ref="form" v-model="valid" lazy-validation>
+        <v-form ref="form">
           <label class="formlabel">CPF</label>
-          <v-text-field v-model="cpf" solo required></v-text-field>
+          <v-text-field v-model="form.cpf" solo required></v-text-field>
 
           <label class="formlabel">Senha</label>
-          <v-text-field type="password" v-model="senha" solo required></v-text-field>
+          <v-text-field type="password" v-model="form.senha" solo required></v-text-field>
 
           <v-row justify="end">
             <recsenha />
@@ -46,22 +46,11 @@ export default {
   },
 
   data: () => ({
-    valid: true
+    form: {
+    }
+
   }),
 
-  methods: {
-    validate() {
-      if (this.$refs.form.validate()) {
-        this.snackbar = true;
-      }
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation();
-    }
-  }
 };
 </script>
 

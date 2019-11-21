@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//import AuthGuard from './auth-guard'
 
 
 Vue.use(Router)
@@ -10,6 +11,7 @@ const router = new Router({
             path: '/',
             name: 'Login',
             component: () => import('../pages/login/')
+            //beforeEnter: AuthGuard
         },
         {
             path: '/sign-up',
@@ -30,7 +32,8 @@ const router = new Router({
             
         },
 
-    ]
+    ],
+    mode: 'history'
 })
 
 export default router;

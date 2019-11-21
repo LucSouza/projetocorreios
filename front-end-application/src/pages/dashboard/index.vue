@@ -1,7 +1,5 @@
 <template>
     <v-container>
-
-
         <v-data-table
 
                 :headers="headers"
@@ -58,8 +56,8 @@
 
                             <v-card-actions>
                                 <v-spacer></v-spacer>
-                                <v-btn color="blue darken-1" text @click="fechar">Cancel</v-btn>
-                                <v-btn color="blue darken-1" text @click="adicionar">Save</v-btn>
+                                <v-btn color="blue darken-1" text @click="fechar">Cancelar</v-btn>
+                                <v-btn color="blue darken-1" text @click="adicionar">Adicionar</v-btn>
                             </v-card-actions>
                         </v-card>
                     </v-dialog>
@@ -91,8 +89,6 @@
     export default {
         data: () => ({
                 search: "",
-
-
                 dialog: false,
                 headers: [
                     {text: 'Tracking code', align: 'left', value: 'tcode'},
@@ -100,24 +96,19 @@
                     {text: 'Localização', value: 'localization'},
                     {text: 'Estado de envio', value: 'status'},
                     {text: 'Actions', value: 'action', sortable: false},
-
                 ],
                 trackings: [],
                 editedIndex: -1,
                 form: {
                     tcode: '',
                     descript: '',
-
                 },
                 defaultItem: {
                     tcode: '',
                     descript: '',
-
                 },
-
             }
         ),
-
         computed: {
             formTitle() {
                 return this.editedIndex === -1 ? 'Novo código de rastreio' : 'Editar código de rastreio'
@@ -125,7 +116,6 @@
             ,
         }
         ,
-
         watch: {
             dialog(val) {
                 val || this.fechar()
@@ -133,28 +123,22 @@
             ,
         }
         ,
-
         created() {
             this.initialize()
         }
         ,
-
         methods: {
-
             editar(item) {
                 this.editedIndex = this.trackings.indexOf(item)
                 this.form = Object.assign({}, item)
                 this.dialog = true
             }
             ,
-
             deletar(item) {
                 const index = this.trackings.indexOf(item)
                 confirm('Tem certeza que quer deletar o código?') && this.trackings.splice(index, 1)
             }
             ,
-
-
             fechar() {
                 this.dialog = false
                 setTimeout(() => {
@@ -163,7 +147,6 @@
                 }, 300)
             }
             ,
-
             adicionar() {
                 if (this.editedIndex > -1) {
                     Object.assign(this.trackings[this.editedIndex], this.form)

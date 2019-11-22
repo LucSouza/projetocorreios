@@ -1,12 +1,11 @@
 <template>
     <v-container>
+
         <v-data-table
 
                 :headers="headers"
                 :items="trackings"
                 :search="search"
-
-
                 class="elevation-1"
         >
 
@@ -81,12 +80,14 @@
 
 
         </v-data-table>
-
+        <layout />
     </v-container>
 </template>
 
 <script>
+    import Layout from "../components/menu";
     export default {
+        components: {Layout},
         data: () => ({
                 search: "",
                 dialog: false,

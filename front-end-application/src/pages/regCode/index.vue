@@ -1,5 +1,6 @@
 <template>
     <v-container>
+
         <v-layout text-center wrap>
             <v-flex mb-4>
                 <v-form ref="form" v-model="valid" lazy-validation>
@@ -31,13 +32,18 @@
             </v-flex>
 
         </v-layout>
+        <layout />
+
     </v-container>
+
 </template>
 
 <script>
+    import layout from "../components/menu"
     export default {
         data: () => ({
             form: {}
         }),
+        components: {layout}
     };
 </script>

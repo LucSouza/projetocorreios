@@ -1,30 +1,14 @@
 <template>
     <v-app id="inspire">
         <v-navigation-drawer v-model="drawer" app clipped>
-            <v-list dense>
-                <v-list-item link to="dashboard">
+            <v-list>
+                <v-list-item v-for="item in menuItems"
+                             :key="item.title"
+                             :to="item.link">
                     <v-list-item-action>
-                        <v-icon>mdi-view-dashboard</v-icon>
+                        <v-icon> {{item.icon}}</v-icon>
                     </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Dashboard</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item link to="reg-code">
-                    <v-list-item-action>
-                        <v-icon>mdi-plus-box</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Registrar código</v-list-item-title>
-                    </v-list-item-content>
-                </v-list-item>
-                <v-list-item link to="/">
-                    <v-list-item-action>
-                        <v-icon>mdi-exit-to-app</v-icon>
-                    </v-list-item-action>
-                    <v-list-item-content>
-                        <v-list-item-title>Logout</v-list-item-title>
-                    </v-list-item-content>
+                    <v-list-tile-content>{{item.title}}</v-list-tile-content>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
@@ -57,12 +41,17 @@
 
 <script>
     export default {
-        name: "menu",
+        name: "layout",
         props: {
             source: String
         },
         data: () => ({
-            drawer: null
+            drawer: null,
+            menuItems: [
+                {icon: 'mdi-view-dashboard', title: 'Dashboard', link: '/dashboard'},
+                {icon: 'mdi-plus-box', title: 'Registrar código', link: '/reg-code'},
+                {icon: 'mdi-exit-to-app', title: 'Sair', link: '/'}
+            ]
         }),
         created() {
             this.$vuetify.theme.dark = true;

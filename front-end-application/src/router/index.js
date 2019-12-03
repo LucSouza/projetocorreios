@@ -31,6 +31,12 @@ const router = new Router({
             component: () => import('../pages/dashboard/')
             
         },
+        {
+            path: '/info',
+            name: 'Info',
+            component: () => import('../pages/info/')
+
+        },
 
     ],
     mode: 'history'

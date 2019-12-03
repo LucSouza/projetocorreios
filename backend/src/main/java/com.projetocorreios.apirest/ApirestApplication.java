@@ -1,13 +1,13 @@
-package com.correios.api.correiosapi;
+package com.projetocorreios.apirest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CorreiosapiApplication {
+public class ApirestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CorreiosapiApplication.class, args);
+		SpringApplication.run(ApirestApplication.class, args);
 	}
 
 }

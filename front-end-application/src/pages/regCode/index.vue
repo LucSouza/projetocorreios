@@ -4,9 +4,9 @@
         <v-layout text-center wrap>
             <v-flex mb-4>
                 <v-form ref="form" v-model="valid" lazy-validation>
-                    <label class="formlabel">Numero de código*</label>
+                    <label class="formlabel">Tracking code*</label>
                     <v-text-field v-model="form.tcode" solo required></v-text-field>
-                    <label class="formlabel">Descrição de código*</label>
+                    <label class="formlabel">Descrição*</label>
                     <v-text-field v-model="form.description" solo required></v-text-field>
                     <v-row justify="start">
                         <small>*campos obrigatorios</small>

@@ -50,6 +50,7 @@
             menuItems: [
                 {icon: 'mdi-view-dashboard', title: 'Dashboard', link: '/dashboard'},
                 {icon: 'mdi-plus-box', title: 'Registrar código', link: '/reg-code'},
+                {icon: 'mdi-plus-box', title: 'Informações', link: '/info'},
                 {icon: 'mdi-exit-to-app', title: 'Sair', link: '/'}
             ]
         }),

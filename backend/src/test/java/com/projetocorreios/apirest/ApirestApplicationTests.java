@@ -1,10 +1,10 @@
-package com.correios.api.correiosapi;
+package com.projetocorreios.apirest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CorreiosapiApplicationTests {
+class ApirestApplicationTests {
 
 	@Test
 	void contextLoads() {

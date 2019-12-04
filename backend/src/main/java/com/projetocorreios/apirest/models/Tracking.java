@@ -6,15 +6,24 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name="TB_TRACKING")
+@Table(name="trackings")
 public class Tracking implements Serializable {
 
     @Id
     private long trackingCode;
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cpf_usuario")
     private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public long getTrackingCode() {
         return trackingCode;

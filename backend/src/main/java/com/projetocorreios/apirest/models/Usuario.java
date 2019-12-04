@@ -6,37 +6,28 @@ import java.util.List;
 
 
 @Entity
-@Table(name="TB_USUARIO")
+@Table(name="usuarios")
 
-public class Usuario implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    private String cpf;
+    private long cpf;
     private String senha;
     private String email;
+
     @OneToMany(
+            mappedBy = "usuario",
             cascade = CascadeType.ALL,
-            orphanRemoval = true/*, mappedBy = "usuario"*/)
-    @JoinColumn(name = "usuario_cpf")
-    private List<Tracking> trackings;
+            orphanRemoval = true
+    )
+    private List<Tracking> trackings = new ArrayList<>();
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 

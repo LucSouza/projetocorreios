@@ -25,11 +25,11 @@ public class UsuarioResource {
         return usuarioRepository.findAll();
 
     }
-    @GetMapping("/usuario/{id}")
+    @GetMapping("/usuario/{cpf}")
     @ApiOperation(value="retorna um Usuario")
-    public Usuario acharUsuario(@PathVariable(value = "id") long id){
+    public Usuario acharUsuario(@PathVariable(value = "cpf") long cpf){
 
-        return usuarioRepository.findById(id);
+        return usuarioRepository.findById(cpf);
 
     }
 

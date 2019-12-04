@@ -1,11 +1,11 @@
-import {http} from './config';
+import {axiLocal} from './config';
 
 export default {
 
 
     listar:() =>{
 
-        return http.get('trackings')
+        return axiLocal.get('trackings')
         
     }
 

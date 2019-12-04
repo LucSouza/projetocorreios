@@ -37,11 +37,14 @@ public class UsuarioResource {
     @ApiOperation(value="Salva um Usuario")
     public Usuario cadastraUsuario(@RequestBody Usuario usuario){ return usuarioRepository.save(usuario);
     }
+
+
     @DeleteMapping("/usuario")
     @ApiOperation(value="Deleta um Usuario")
     public void deleteUsuario(@RequestBody Usuario usuario) {
         usuarioRepository.delete(usuario);
     }
+
     @PutMapping("/usuario")
     @ApiOperation(value="Atualiza um Usuario")
     public Usuario atualizarUsuario (@RequestBody Usuario usuario)

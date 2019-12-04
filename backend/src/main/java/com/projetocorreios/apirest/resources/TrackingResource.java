@@ -44,6 +44,7 @@ public class TrackingResource {
     public void deleteTracking(@RequestBody Tracking tracking) {
         trackingRepository.delete(tracking);
     }
+
     @PutMapping("/tracking")
     @ApiOperation(value="Modifica um Tracking")
     public Tracking atualizarTracking(@RequestBody Tracking tracking)

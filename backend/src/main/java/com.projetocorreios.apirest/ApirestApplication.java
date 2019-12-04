@@ -1,5 +1,4 @@
 package com.projetocorreios.apirest;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

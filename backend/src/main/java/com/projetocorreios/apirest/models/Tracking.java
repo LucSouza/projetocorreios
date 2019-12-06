@@ -13,17 +13,20 @@ public class Tracking implements Serializable {
     private long trackingCode;
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="cpf_usuario")
-    private Usuario usuario;
+    private Integer cpf_usuario;
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Integer getCpf_usuario() {
+        return cpf_usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCpf_usuario(Integer cpf_usuario) {
+        this.cpf_usuario = cpf_usuario;
     }
+
+    public Tracking() {
+    }
+
+
 
     public long getTrackingCode() {
         return trackingCode;

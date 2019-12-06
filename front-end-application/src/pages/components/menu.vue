@@ -15,7 +15,7 @@
 
         <v-app-bar app clipped-left>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-            <v-toolbar-title>CentracKode</v-toolbar-title>
+            <v-toolbar-title>CentracKode</v-toolbar-title> <!--{{Auth::user()->cpf}}-->
         </v-app-bar>
 
         <v-content>

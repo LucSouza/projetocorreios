@@ -24,7 +24,7 @@
                     <v-flex row>
                         <v-flex>
                             <div class="text-center">
-                                <v-btn rounded color="primary" class="botoes" dark to="dashboard">Cadastrar</v-btn>
+                                <v-btn rounded color="primary" class="botoes" dark to="dashboard" @click=createUser()>Cadastrar</v-btn>
                             </div>
                         </v-flex>
 
@@ -47,11 +47,22 @@
     export default {
 
         data: () => ({
-            form: {},
+            form: {
+                cpf: '',
+                senha: '',
+                email: ''
+            },
 
         }),
 
-        methods: {}
+        methods: {
+
+            createUser(){
+                this.form.post('/api/usuario')
+            }
+        
+
+        }
     };
 </script>
 

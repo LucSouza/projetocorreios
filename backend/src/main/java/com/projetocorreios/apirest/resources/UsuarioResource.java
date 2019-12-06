@@ -9,11 +9,21 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+
 @RestController
 @RequestMapping(value="/api")
 @Api(value="API Rest Usuario")
 @CrossOrigin(origins = "*")
 public class UsuarioResource {
+
+//    @RequestMapping("/users")
+//    @ResponseBody
+//    public String getUsers() {
+//        return "{\"users\":[{\"name\":\"Lucas\", \"country\":\"Brazil\"}," +
+//                "{\"name\":\"Jackie\",\"country\":\"China\"}]}";
+//    }
+
 
     @Autowired
     UsuarioRepository usuarioRepository;

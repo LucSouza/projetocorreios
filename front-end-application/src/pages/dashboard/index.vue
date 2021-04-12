@@ -49,10 +49,10 @@
           </v-dialog>
         </v-toolbar>
       </template>
-      <template v-slot:item.tcode="{item}">
+      <template> // v-slot:item.tcode="{item}"
           <tr v-for="tracking of trackings" :key="tracking.trackingCode"></tr>
       </template>
-      <template v-slot:item.action="{ item }">
+      <template> //v-slot:item.action="{ item }
         <v-icon small class="mr-2" @click="editar(item)">mdi-pencil</v-icon>
         <v-icon small @click="deletar(item)">mdi-delete</v-icon>
       </template>
